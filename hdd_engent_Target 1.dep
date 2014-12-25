@@ -1,0 +1,17 @@
+Dependencies for Project 'hdd_engent', Target 'Target 1': (DO NOT MODIFY !)
+F (.\main.c)(0x546FE742)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I C:\Keil_projects\Projects\hdd_engent\RTE-I C:\Keil_projects\Projects\hdd_engent\RTE\Device\STM32F103CB-I C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include-D_RTE_ -DSTM32F10X_MD -o .\main.o --omf_browse .\main.crf --depend .\main.d)
+I (C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include\stm32f10x.h)(0x5289B226)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm3.h)(0x512C56A2)
+I (C:\Keil2\ARM\ARMCC\include\stdint.h)(0x52FE0ABE)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include\system_stm32f10x.h)(0x4F1E667C)
+F (RTE\Device\STM32F103CB\RTE_Device.h)(0x524350B8)()
+F (RTE\Device\STM32F103CB\startup_stm32f10x_md.s)(0x4F1E667C)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I C:\Keil_projects\Projects\hdd_engent\RTE-I C:\Keil_projects\Projects\hdd_engent\RTE\Device\STM32F103CB-I C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include--list .\startup_stm32f10x_md.lst --xref -o .\startup_stm32f10x_md.o --depend .\startup_stm32f10x_md.d)
+F (RTE\Device\STM32F103CB\system_stm32f10x.c)(0x4F1E667C)(-c --cpu Cortex-M3 -D__EVAL -g -O0 --apcs=interwork -I C:\Keil_projects\Projects\hdd_engent\RTE-I C:\Keil_projects\Projects\hdd_engent\RTE\Device\STM32F103CB-I C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include-I C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include-D_RTE_ -DSTM32F10X_MD -o .\system_stm32f10x.o --omf_browse .\system_stm32f10x.crf --depend .\system_stm32f10x.d)
+I (C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include\stm32f10x.h)(0x5289B226)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cm3.h)(0x512C56A2)
+I (C:\Keil2\ARM\ARMCC\include\stdint.h)(0x52FE0ABE)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmInstr.h)(0x51BA9BB4)
+I (C:\Keil2\ARM\PACK\ARM\CMSIS\3.20.4\CMSIS\Include\core_cmFunc.h)(0x512C56A2)
+I (C:\Keil2\ARM\PACK\Keil\STM32F1xx_DFP\1.0.4\Device\Include\system_stm32f10x.h)(0x4F1E667C)
