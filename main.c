@@ -11,8 +11,8 @@ int main()
 	
 	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
 	//TIM3->CNT = 0; // 72000 , this is 333ms
-  TIM3->PSC = 60000-1;
-	TIM3->ARR = 1000-1;
+  TIM3->PSC = 36000-1;
+	TIM3->ARR = 2000;
 	TIM3->DIER |= TIM_DIER_UIE;
   TIM3->CR1 |= TIM_CR1_CEN;
 	NVIC_EnableIRQ(TIM3_IRQn);
