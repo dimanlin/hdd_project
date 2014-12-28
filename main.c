@@ -10,12 +10,20 @@ int main()
   GPIOA->CRL &= ~GPIO_CRL_CNF0;
 	
 	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
-	//TIM3->CNT = 0; // 72000 , this is 333ms
+	//RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+	
   TIM3->PSC = 36000-1;
 	TIM3->ARR = 2000;
 	TIM3->DIER |= TIM_DIER_UIE;
   TIM3->CR1 |= TIM_CR1_CEN;
 	NVIC_EnableIRQ(TIM3_IRQn);
+	
+  TIM2->PSC = 36000-1;
+	TIM2->ARR = 2000;
+	TIM2->DIER |= TIM_DIER_UIE;
+  TIM2->CR1 |= TIM_CR1_CEN;
+	NVIC_EnableIRQ(TIM2_IRQn);
+	
 	while(1) {}
 }
 
@@ -26,5 +34,15 @@ void TIM3_IRQHandler(void)
 		GPIOA->ODR &= !GPIO_ODR_ODR0;
 	} else {
 		GPIOA->ODR = GPIO_ODR_ODR0;
+	}
+}
+
+void TIM2_IRQHandler(void)
+{
+	TIM2->SR &= ~TIM_SR_UIF;
+  if(GPIOA->IDR & GPIO_IDR_IDR1) {
+		GPIOA->ODR &= !GPIO_ODR_ODR1;
+	} else {
+		GPIOA->ODR = GPIO_ODR_ODR1;
 	}
 }
