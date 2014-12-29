@@ -1,5 +1,4 @@
 #include "stm32f10x.h"                  // Device header
-//volatile uint32_t i;
 
 int main()
 {
