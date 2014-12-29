@@ -11,7 +11,16 @@ int main()
 	GPIOA->CRL |= GPIO_CRL_MODE1;
   GPIOA->CRL &= ~GPIO_CRL_CNF1;
 	
-	RCC->APB1ENR |= (RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM3EN);
+	GPIOA->CRL |= GPIO_CRL_MODE2;
+  GPIOA->CRL &= ~GPIO_CRL_CNF2;
+	
+	RCC->APB1ENR |= (RCC_APB1ENR_TIM2EN | RCC_APB1ENR_TIM3EN | RCC_APB1ENR_TIM4EN);
+	
+	TIM2->PSC = 36000-1;
+	TIM2->ARR = 2000;
+	TIM2->DIER |= TIM_DIER_UIE;
+  TIM2->CR1 |= TIM_CR1_CEN;
+	NVIC_EnableIRQ(TIM2_IRQn);
 	
   TIM3->PSC = 36000-1;
 	TIM3->ARR = 2000;
@@ -19,14 +28,25 @@ int main()
   TIM3->CR1 |= TIM_CR1_CEN;
 	NVIC_EnableIRQ(TIM3_IRQn);
 	
-  TIM2->PSC = 36000-1;
-	TIM2->ARR = 2000;
-	TIM2->DIER |= TIM_DIER_UIE;
-  TIM2->CR1 |= TIM_CR1_CEN;
-	NVIC_EnableIRQ(TIM2_IRQn);
+	TIM4->PSC = 36000-1;
+	TIM4->ARR = 2000;
+	TIM4->DIER |= TIM_DIER_UIE;
+  TIM4->CR1 |= TIM_CR1_CEN;
+	NVIC_EnableIRQ(TIM4_IRQn);
 	
 	while(1) {}
 }
+
+void TIM2_IRQHandler(void)
+{
+	TIM2->SR &= ~TIM_SR_UIF;
+  if(GPIOA->IDR & GPIO_IDR_IDR1) {
+		GPIOA->ODR &= !GPIO_ODR_ODR1;
+	} else {
+		GPIOA->ODR |= GPIO_ODR_ODR1;
+	}
+}
+
 
 void TIM3_IRQHandler(void)
 {
@@ -38,12 +58,12 @@ void TIM3_IRQHandler(void)
 	}
 }
 
-void TIM2_IRQHandler(void)
+void TIM4_IRQHandler(void)
 {
-	TIM2->SR &= ~TIM_SR_UIF;
-  if(GPIOA->IDR & GPIO_IDR_IDR1) {
-		GPIOA->ODR &= !GPIO_ODR_ODR1;
+	TIM4->SR &= ~TIM_SR_UIF;
+  if(GPIOA->IDR & GPIO_IDR_IDR2) {
+		GPIOA->ODR &= !GPIO_ODR_ODR2;
 	} else {
-		GPIOA->ODR |= GPIO_ODR_ODR1;
+		GPIOA->ODR |= GPIO_ODR_ODR2;
 	}
 }
