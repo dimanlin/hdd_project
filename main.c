@@ -40,10 +40,10 @@ int main()
 void TIM2_IRQHandler(void)
 {
 	TIM2->SR &= ~TIM_SR_UIF;
-  if(GPIOA->IDR & GPIO_IDR_IDR1) {
-		GPIOA->ODR &= !GPIO_ODR_ODR1;
+  if(GPIOA->IDR & GPIO_IDR_IDR0) {
+		GPIOA->ODR &= !GPIO_ODR_ODR0;
 	} else {
-		GPIOA->ODR |= GPIO_ODR_ODR1;
+		GPIOA->ODR |= GPIO_ODR_ODR0;
 	}
 }
 
@@ -51,10 +51,10 @@ void TIM2_IRQHandler(void)
 void TIM3_IRQHandler(void)
 {
 	TIM3->SR &= ~TIM_SR_UIF;
-  if(GPIOA->IDR & GPIO_IDR_IDR0) {
-		GPIOA->ODR &= !GPIO_ODR_ODR0;
+  if(GPIOA->IDR & GPIO_IDR_IDR1) {
+		GPIOA->ODR &= !GPIO_ODR_ODR1;
 	} else {
-		GPIOA->ODR |= GPIO_ODR_ODR0;
+		GPIOA->ODR |= GPIO_ODR_ODR1;
 	}
 }
 
