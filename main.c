@@ -5,7 +5,7 @@ int arr;
 
 int main()
 {
-	arr = 500;
+	arr = 40;
 	position = 0;
 	
   RCC->APB2ENR |= RCC_APB2ENR_IOPAEN; //|= (RCC_APB2ENR_IOPAEN | RCC_APB2ENR_AFIOEN); // Taktirovanie PA pins s alternativnoy functiey
@@ -51,7 +51,9 @@ int main()
 
 void TIM2_IRQHandler(void)
 {
-	arr = arr - 20;
+	if(arr > 5) {
+		arr = arr - 1;
+	}
 	TIM2->ARR = arr;
 	
 	TIM2->SR &= ~TIM_SR_UIF;
